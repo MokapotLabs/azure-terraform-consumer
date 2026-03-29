@@ -11,7 +11,7 @@ required_providers {
 
 stack "environment" {
   source  = "app.terraform.io/mbarcia/azure-terraform-example"
-  version = "2.2.0"
+  version = "2.3.0"
 
   inputs = {
     client_id               = var.client_id
