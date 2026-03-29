@@ -23,7 +23,7 @@ deployment "dev" {
     admin_ssh_public_key    = store.varset.stack_vars.stable.admin_ssh_public_key
     admin_cidrs             = ["203.0.113.10/32"]
     enable_public_ip        = true
-    vm_size                 = "Standard_B1s"
+    vm_size                 = "Standard_D2ps_v6"
     admin_username          = "azureuser"
     storage_container_name  = "appdata"
     ddos_protection_plan_id = null
