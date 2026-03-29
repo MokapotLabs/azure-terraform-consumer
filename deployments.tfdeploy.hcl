@@ -1,12 +1,17 @@
+store "varset" "stack_vars" {
+  name     = "azure-terraform-consumer"
+  category = "terraform"
+}
+
 identity_token "azurerm" {
   audience = ["api://AzureADTokenExchange"]
 }
 
 deployment "dev" {
   inputs = {
-    client_id               = var.dev_client_id
-    tenant_id               = var.dev_tenant_id
-    subscription_id         = var.dev_subscription_id
+    client_id               = store.varset.stack_vars.dev_client_id
+    tenant_id               = store.varset.stack_vars.dev_tenant_id
+    subscription_id         = store.varset.stack_vars.dev_subscription_id
     identity_token          = identity_token.azurerm.jwt
     environment             = "dev"
     project_name            = var.project_name
@@ -15,7 +20,7 @@ deployment "dev" {
     address_space           = ["10.10.0.0/16"]
     workload_subnet_cidr    = "10.10.1.0/24"
     private_subnet_cidr     = "10.10.2.0/24"
-    admin_ssh_public_key    = var.admin_ssh_public_key
+    admin_ssh_public_key    = store.varset.stack_vars.admin_ssh_public_key
     admin_cidrs             = ["203.0.113.10/32"]
     enable_public_ip        = true
     vm_size                 = var.vm_size
@@ -30,9 +35,9 @@ deployment "dev" {
 
 deployment "prod" {
   inputs = {
-    client_id               = var.prod_client_id
-    tenant_id               = var.prod_tenant_id
-    subscription_id         = var.prod_subscription_id
+    client_id               = store.varset.stack_vars.prod_client_id
+    tenant_id               = store.varset.stack_vars.prod_tenant_id
+    subscription_id         = store.varset.stack_vars.prod_subscription_id
     identity_token          = identity_token.azurerm.jwt
     environment             = "prod"
     project_name            = var.project_name
@@ -41,7 +46,7 @@ deployment "prod" {
     address_space           = ["10.20.0.0/16"]
     workload_subnet_cidr    = "10.20.1.0/24"
     private_subnet_cidr     = "10.20.2.0/24"
-    admin_ssh_public_key    = var.admin_ssh_public_key
+    admin_ssh_public_key    = store.varset.stack_vars.admin_ssh_public_key
     admin_cidrs             = []
     enable_public_ip        = false
     vm_size                 = var.vm_size

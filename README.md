@@ -17,6 +17,7 @@ This repository is the thin Stack that provisions the live `dev` and `prod` Azur
 ├── main.tfcomponent.hcl
 ├── variables.tfcomponent.hcl
 ├── deployments.tfdeploy.hcl
+├── security.sh
 └── README.md
 ```
 
@@ -47,7 +48,8 @@ If `terraform stacks init` fails with a private registry authentication or unkno
 1. Create a new repository from this directory’s contents.
 2. In HCP Terraform, create a dedicated project for live Stack deployments.
 3. Create a new Stack connected to the consumer repository.
-4. Add stack-scoped or project-scoped values for:
+4. Create an HCP Terraform variable set named `azure-terraform-consumer`.
+5. Add Terraform-category variables to that variable set:
    - `dev_client_id`
    - `dev_tenant_id`
    - `dev_subscription_id`
@@ -55,9 +57,16 @@ If `terraform stacks init` fails with a private registry authentication or unkno
    - `prod_tenant_id`
    - `prod_subscription_id`
    - `admin_ssh_public_key`
-5. Push the repo and let HCP Terraform load the Stack configuration.
+6. Assign that variable set to the Stack itself or to the project containing the Stack.
+7. Push the repo and let HCP Terraform load the Stack configuration.
 
 HCP Terraform will create separate deployment plans for `dev` and `prod`. Approve and apply them independently.
+
+This is different from classic workspaces: Stack deployments read external values through `store "varset"` blocks in `*.tfdeploy.hcl`, not from a workspace-style Variables tab.
+
+## Azure Bootstrap Helper
+
+[security.sh](/Users/mari/mokapot/azure-terraform-consumer/security.sh) is a small helper script used to create the Azure app registrations, service principals, role assignments, and federated credentials for the `dev` and `prod` deployments. It also prints the values that must be added to the `azure-terraform-consumer` HCP Terraform variable set.
 
 ## Azure OIDC Setup
 

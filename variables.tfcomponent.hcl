@@ -103,33 +103,3 @@ variable "extra_tags" {
   type        = map(string)
   default     = {}
 }
-
-variable "dev_client_id" {
-  description = "Azure client ID for the dev workload identity."
-  type        = string
-}
-
-variable "dev_tenant_id" {
-  description = "Azure tenant ID for the dev workload identity."
-  type        = string
-}
-
-variable "dev_subscription_id" {
-  description = "Azure subscription ID for the dev deployment."
-  type        = string
-}
-
-variable "prod_client_id" {
-  description = "Azure client ID for the prod workload identity."
-  type        = string
-}
-
-variable "prod_tenant_id" {
-  description = "Azure tenant ID for the prod workload identity."
-  type        = string
-}
-
-variable "prod_subscription_id" {
-  description = "Azure subscription ID for the prod deployment."
-  type        = string
-}
