@@ -23,7 +23,7 @@ deployment "dev" {
     admin_ssh_public_key    = store.varset.stack_vars.stable.admin_ssh_public_key
     admin_cidrs             = ["203.0.113.10/32"]
     enable_public_ip        = true
-    vm_size                 = "Standard_B2s"
+    vm_size                 = "Standard_B1s"
     admin_username          = "azureuser"
     storage_container_name  = "appdata"
     ddos_protection_plan_id = null
@@ -49,7 +49,7 @@ deployment "prod" {
     admin_ssh_public_key    = store.varset.stack_vars.stable.admin_ssh_public_key
     admin_cidrs             = []
     enable_public_ip        = false
-    vm_size                 = "Standard_B2s"
+    vm_size                 = "Standard_B1s"
     admin_username          = "azureuser"
     storage_container_name  = "appdata"
     ddos_protection_plan_id = null
