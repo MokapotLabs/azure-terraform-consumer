@@ -27,7 +27,7 @@ This consumer Stack is configured to use the published component source:
 
 ```hcl
 source = "app.terraform.io/mbarcia/azure-terraform-example"
-version = "2.2.0"
+version = "2.3.1"
 ```
 
 If you publish a newer component release, update [main.tfcomponent.hcl](/Users/mari/mokapot/azure-terraform-consumer/main.tfcomponent.hcl) to the new version.
@@ -99,6 +99,6 @@ Assign Azure RBAC to each app registration at the required subscription or resou
 
 ## Deployment Behavior
 
-- `dev` deploys to `eastus` with a public IP and SSH restricted to the configured admin CIDR.
+- `dev` deploys to `eastus2` with a public IP and SSH restricted to the configured admin CIDR.
 - `prod` deploys to `westeurope` without a public IP.
 - Both deployments use the same published component version unless you change the version constraint.
