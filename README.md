@@ -43,6 +43,15 @@ terraform stacks validate
 
 If `terraform stacks init` fails with a private registry authentication or unknown source error, authenticate with HCP Terraform first and confirm the `source` address matches the published component exactly.
 
+This repo is also set up for local `pre-commit` checks:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+The hooks run `terraform fmt` and Stack init/validate before commit. Because this repo consumes a private Stack component, those hooks require Terraform CLI access to the HCP Terraform private registry.
+
 ## HCP Terraform Setup
 
 1. Create a new repository from this directory’s contents.
