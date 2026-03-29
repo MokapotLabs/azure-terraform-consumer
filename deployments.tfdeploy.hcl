@@ -30,7 +30,6 @@ deployment "dev" {
     extra_tags = {
       environment = "dev"
     }
-    destroy = true
   }
 }
 
@@ -57,6 +56,5 @@ deployment "prod" {
     extra_tags = {
       environment = "prod"
     }
-    destroy = true
   }
 }
