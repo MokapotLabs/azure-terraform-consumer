@@ -31,6 +31,8 @@ deployment "dev" {
       environment = "dev"
     }
   }
+
+  destroy = true
 }
 
 deployment "prod" {
@@ -57,4 +59,6 @@ deployment "prod" {
       environment = "prod"
     }
   }
+
+  destroy = true
 }
