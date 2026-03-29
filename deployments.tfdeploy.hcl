@@ -15,7 +15,7 @@ deployment "dev" {
     identity_token          = identity_token.azurerm.jwt
     environment             = "dev"
     project_name            = "acme"
-    location                = "eastus"
+    location                = "eastus2"
     location_short          = "eus"
     address_space           = ["10.10.0.0/16"]
     workload_subnet_cidr    = "10.10.1.0/24"
