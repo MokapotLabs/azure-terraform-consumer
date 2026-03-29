@@ -26,6 +26,7 @@ deployment "dev" {
     vm_size                 = "Standard_B2s"
     admin_username          = "azureuser"
     storage_container_name  = "appdata"
+    ddos_protection_plan_id = null
     extra_tags = {
       environment = "dev"
     }
@@ -51,6 +52,7 @@ deployment "prod" {
     vm_size                 = "Standard_B2s"
     admin_username          = "azureuser"
     storage_container_name  = "appdata"
+    ddos_protection_plan_id = null
     extra_tags = {
       environment = "prod"
     }
