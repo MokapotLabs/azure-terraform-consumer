@@ -77,7 +77,7 @@ variable "enable_public_ip" {
 variable "vm_size" {
   description = "Azure VM size for the Linux VM."
   type        = string
-  default     = "Standard_B2s"
+  default     = "Standard_D2ps_v6"
 }
 
 variable "admin_username" {
