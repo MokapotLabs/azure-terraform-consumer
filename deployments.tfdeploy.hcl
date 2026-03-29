@@ -16,7 +16,7 @@ deployment "dev" {
     environment             = "dev"
     project_name            = "acme"
     location                = "eastus2"
-    location_short          = "eus"
+    location_short          = "eus2"
     address_space           = ["10.10.0.0/16"]
     workload_subnet_cidr    = "10.10.1.0/24"
     private_subnet_cidr     = "10.10.2.0/24"
